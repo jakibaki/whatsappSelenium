@@ -72,11 +72,9 @@ def send(text,web):
 def getLatestMsg(web):
     #A bit hacky but it works (I was getting seemingly random errors when switching the current contact)
     try:
-        input_box = web.find_element(By.XPATH, '//*[@id="side"]//input')
-        input_box.clear()
-        input_box.click()
-        input_box.send_keys(Keys.RETURN)
-
+        ele = web.find_element(By.XPATH, '//*[@id="pane-side"]/div/div/div')
+        ele = ele.find_element_by_class_name('first')
+        ele.click()
 
         msg = web.find_elements_by_class_name('bubble-text')
         msg = msg[len(msg)-1]
@@ -117,9 +115,9 @@ def messageHandler(web,msg):
                 if(guessNum <= 100 and guessNum >= 1):
                     step += 1
                     if(guessNum>num):
-                        send('Deine Zahl ist zu Groß', web)
+                        send('Deine Zahl ist zu groß', web)
                     elif(guessNum<num):
-                        send('Deine Zahl ist zu Klein', web)
+                        send('Deine Zahl ist zu klein', web)
                     elif(guessNum == num):
                         send('Deine Zahl ist richtig!\n' +
                              'Du hast die Zahl in ' + str(step) + ' Schritten gefunden!', web)
@@ -142,7 +140,7 @@ def messageLoop(web):
             messageHandler(web,msg)
         
         last = msg[1]
-        sleep(0.5)
+        sleep(1)
 
 
 web = init("secrets")
