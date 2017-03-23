@@ -79,7 +79,7 @@ def upload(path, description, type, web):
         ele = web.find_element_by_class_name('icon-clip')
         ele.click()
     except:
-        pass
+        print(Upload failed)
 
 def send(text,web):
     text = text.split("\n")
