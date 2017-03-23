@@ -140,7 +140,7 @@ def messageLoop(web):
             messageHandler(web,msg)
         
         last = msg[1]
-        sleep(1)
+        sleep(0.5)
 
 
 web = init("secrets")
