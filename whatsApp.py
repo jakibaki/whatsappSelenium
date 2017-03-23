@@ -35,6 +35,7 @@ def init(path):
         try:
             if(virtualDisplay):
                 from pyvirtualdisplay import Display
+                print('Using virtual diplay.')
                 display = Display(visible=0, size=(800, 600))
                 display.start()
         except ImportError:

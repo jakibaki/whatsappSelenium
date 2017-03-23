@@ -21,3 +21,10 @@ Put your _secrets_-file in the whatsappSelenium folder and run
 to start the bot. (you need chromedriver in your PATH)
 
 You can edit the messageHandler method to do whatever you want.
+
+This was tested on Debian sid and macOS 10.12.4 but there is nothing preventing it from running on Windows with a few changes
+
+## Debian
+
+    sudo apt install git python3-pip python3-selenium xvfb chromium 
+    
