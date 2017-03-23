@@ -55,6 +55,28 @@ def init(path):
 def goto(text,web):
     web.find_element_by_xpath('//span[contains(text(),"' + text + '")]').click()
 
+def upload(path, description, type, web):
+    web.find_element_by_class_name('icon-clip').click()
+    sleep(0.5)
+    if(type == "image"):
+        t = '//*[@id="main"]/header/div[3]/div/div[2]/span/div/div/ul/li[1]/input'
+    if(type == "document"):
+        t = '//*[@id="main"]/header/div[3]/div/div[2]/span/div/div/ul/li[3]/input'
+    #web.find_elements_by_class_name('menu-icons-item')[t].click()
+    
+    #ele = web.find_elements_by_class_name('menu-shortcut')[t]
+    #ele.click()
+    sleep(0.5)
+    ele = web.find_element_by_xpath(t)
+    ele.send_keys(path)
+    sleep(1)
+    web.find_elements_by_class_name('input')[0].send_keys(description)
+    sleep(0.2)
+    web.find_element_by_class_name('btn-round').click()
+
+
+    ele = web.find_element_by_class_name('icon-clip')
+    ele.click()
 
 
 def send(text,web):
@@ -99,9 +121,12 @@ def messageHandler(web,msg):
             send('Liste aller Befehle:\n' + 
                  '*!help* zeigt diese Seite\n' +
                  '*!zeit* gibt die aktuelle Uhrzeit und das aktuelle Datum aus\n' +
-                 '*!zahlenraten* startet/stoppt ein Zahlen-rate-Spiel', web)
+                 '*!zahlenraten* startet/stoppt ein Zahlen-rate-Spiel\n' +
+                 '*!blume* schickt eine wunderschöne Blume!', web)
         elif(msg[0].lower().startswith('!zeit')):
             send('Es ist: ' + ctime(), web)
+        elif(msg[0].lower().startswith('!blume')):
+            upload('/Users/jakibaki/Pictures/Wall/Pink Lotus Flower.jpg', 'Blume!' , 'image', web)
         elif(msg[0].lower().startswith('!zahlenraten')):
             if(not zahlenRaten):
                 send('Startet ein neues Zahlen-rate-Spiel mit zahlen von 1 bis 100...\n' +
