@@ -26,5 +26,6 @@ This was tested on Debian sid and macOS 10.12.4 but there is nothing preventing 
 
 ## Debian
 
-    sudo apt install git python3-pip python3-selenium xvfb chromium 
+    sudo apt install git python3-pip python3-selenium xvfb chromium
+    sudo pip3 install pyvirtualdisplay 
     

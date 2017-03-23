@@ -31,7 +31,7 @@ def init(path):
 
 
     virtualDisplay = True
-    if sys.platform == 'linux2':
+    if sys.platform == 'linux':
         try:
             if(virtualDisplay):
                 from pyvirtualdisplay import Display
