@@ -8,6 +8,7 @@ from selenium.webdriver.support.ui import WebDriverWait, Select
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.action_chains import ActionChains
 
+import sys
 import os
 from time import sleep, ctime
 from _thread import start_new_thread
