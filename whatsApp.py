@@ -122,11 +122,14 @@ def messageHandler(web,msg):
                  '*!help* zeigt diese Seite\n' +
                  '*!zeit* gibt die aktuelle Uhrzeit und das aktuelle Datum aus\n' +
                  '*!zahlenraten* startet/stoppt ein Zahlen-rate-Spiel\n' +
-                 '*!blume* schickt eine wunderschöne Blume!', web)
+                 '*!blume* schickt eine wunderschöne Blume!\n' +
+                 '*!welpen* Hundis!!!!!', web)
         elif(msg[0].lower().startswith('!zeit')):
             send('Es ist: ' + ctime(), web)
         elif(msg[0].lower().startswith('!blume')):
             upload('/Users/jakibaki/Pictures/Wall/Pink Lotus Flower.jpg', 'Blume!' , 'image', web)
+        elif(msg[0].lower().startswith('!welpen')):
+            upload('/Users/jakibaki/Pictures/hundewelpen.jpg', 'Hundis!!' , 'image', web)
         elif(msg[0].lower().startswith('!zahlenraten')):
             if(not zahlenRaten):
                 send('Startet ein neues Zahlen-rate-Spiel mit zahlen von 1 bis 100...\n' +
