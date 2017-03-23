@@ -56,28 +56,30 @@ def goto(text,web):
     web.find_element_by_xpath('//span[contains(text(),"' + text + '")]').click()
 
 def upload(path, description, type, web):
-    web.find_element_by_class_name('icon-clip').click()
-    sleep(0.5)
-    if(type == "image"):
-        t = '//*[@id="main"]/header/div[3]/div/div[2]/span/div/div/ul/li[1]/input'
-    if(type == "document"):
-        t = '//*[@id="main"]/header/div[3]/div/div[2]/span/div/div/ul/li[3]/input'
-    #web.find_elements_by_class_name('menu-icons-item')[t].click()
-    
-    #ele = web.find_elements_by_class_name('menu-shortcut')[t]
-    #ele.click()
-    sleep(0.5)
-    ele = web.find_element_by_xpath(t)
-    ele.send_keys(path)
-    sleep(1)
-    web.find_elements_by_class_name('input')[0].send_keys(description)
-    sleep(0.2)
-    web.find_element_by_class_name('btn-round').click()
+    try:
+        web.find_element_by_class_name('icon-clip').click()
+        sleep(0.5)
+        if(type == "image"):
+            t = '//*[@id="main"]/header/div[3]/div/div[2]/span/div/div/ul/li[1]/input'
+        if(type == "document"):
+            t = '//*[@id="main"]/header/div[3]/div/div[2]/span/div/div/ul/li[3]/input'
+        #web.find_elements_by_class_name('menu-icons-item')[t].click()
+        
+        #ele = web.find_elements_by_class_name('menu-shortcut')[t]
+        #ele.click()
+        sleep(0.5)
+        ele = web.find_element_by_xpath(t)
+        ele.send_keys(path)
+        sleep(1)
+        web.find_elements_by_class_name('input')[0].send_keys(description)
+        sleep(0.2)
+        web.find_element_by_class_name('btn-round').click()
 
 
-    ele = web.find_element_by_class_name('icon-clip')
-    ele.click()
-
+        ele = web.find_element_by_class_name('icon-clip')
+        ele.click()
+    except:
+        pass
 
 def send(text,web):
     text = text.split("\n")
