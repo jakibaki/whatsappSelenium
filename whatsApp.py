@@ -125,7 +125,27 @@ def messageHandler(web,msg):
                  '*!zeit* gibt die aktuelle Uhrzeit und das aktuelle Datum aus\n' +
                  '*!zahlenraten* startet/stoppt ein Zahlen-rate-Spiel\n' +
                  '*!blume* schickt eine wunderschöne Blume!\n' +
-                 '*!welpen* Hundis!!!!!', web)
+                 '*!welpen* Hundis!!!!!\n' +
+                 '*!einkaufszettel* gibt den aktuellen einkaufszettel aus\n' +
+                 '*!cleareinkaufszettel* löscht den einkaufszettel\n' +
+                 '*!add* fügt neue sache zum einkaufszettel hinzu', web)
+        elif(msg[0].lower().startswith('!einkaufszettel')):
+            toSend = 'Inhalt des Einkaufszettel:\n'
+            if(os.path.isfile('einkaufszettel')):
+                i = open("einkaufszettel",'r')
+                toSend += i.read()
+                i.close()
+            send(toSend,web)
+        elif(msg[0].lower().startswith('!cleareinkaufszettel')):
+            i = open('einkaufszettel','w+')
+            i.write('')
+            i.close()
+            send('Einkaufszettel wurde geleert!',web)
+        elif(msg[0].lower().startswith('!add')):
+            i = open('einkaufszettel','a+')
+            i.write( msg[0][5:] + '\n')
+            i.close()
+            send('Erfolgreich hinzugefügt!',web)
         elif(msg[0].lower().startswith('!zeit')):
             send('Es ist: ' + ctime(), web)
         elif(msg[0].lower().startswith('!blume')):
