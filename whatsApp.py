@@ -156,3 +156,5 @@ start_new_thread(messageLoop, (web, ))
 input("Press return to exit!\n")
 
 web.quit()
+if sys.platform == 'linux2' and virtualDisplay:
+    display.sendstop()
