@@ -126,9 +126,9 @@ def messageHandler(web,msg):
                  '*!zahlenraten* startet/stoppt ein Zahlen-rate-Spiel\n' +
                  '*!blume* schickt eine wunderschöne Blume!\n' +
                  '*!welpen* Hundis!!!!!\n' +
-                 '*!einkaufszettel* gibt den aktuellen einkaufszettel aus\n' +
-                 '*!cleareinkaufszettel* löscht den einkaufszettel\n' +
-                 '*!add* fügt neue sache zum einkaufszettel hinzu', web)
+                 '*!einkaufszettel* gibt den aktuellen Einkaufszettel aus\n' +
+                 '*!cleareinkaufszettel* löscht den Einkaufszettel\n' +
+                 '*!add* fügt neue sache zum Einkaufszettel hinzu', web)
         elif(msg[0].lower().startswith('!einkaufszettel')):
             toSend = 'Inhalt des Einkaufszettel:\n'
             if(os.path.isfile('einkaufszettel')):
