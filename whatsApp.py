@@ -67,7 +67,6 @@ def send(text,web):
     for i in text:
         actions.send_keys(i).key_down(Keys.SHIFT).send_keys("\n").key_up(Keys.SHIFT)
         # pressing shift prevents whatsapp-web from sending the message when given a newline
-        print(i)
         print(text)
     actions.send_keys("\n").perform() 
     # this \n is without shift so it actually sends the message
