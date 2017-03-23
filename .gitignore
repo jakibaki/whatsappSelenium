@@ -2,3 +2,4 @@ secrets
 whatsapp-phishing/
 .vscode
 launch.json
+*cpython*

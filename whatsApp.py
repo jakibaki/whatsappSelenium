@@ -65,12 +65,14 @@ def send(text,web):
 
     for i in text:
         actions.send_keys(i).key_down(Keys.SHIFT).send_keys("\n").key_up(Keys.SHIFT)
+        # pressing shift prevents whatsapp-web from sending the message when given a newline
         print(i)
         print(text)
-    actions.send_keys("\n").perform() #this \n is without shift so it actually sends the message
+    actions.send_keys("\n").perform() 
+    # this \n is without shift so it actually sends the message
 
 def getLatestMsg(web):
-    #A bit hacky but it works (I was getting seemingly random errors when switching the current contact)
+    # A bit hacky but it works (I was getting seemingly random errors when switching the current contact)
     try:
         ele = web.find_element(By.XPATH, '//*[@id="pane-side"]/div/div/div')
         ele = ele.find_element_by_class_name('first')
