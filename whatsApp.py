@@ -23,9 +23,21 @@ def FindWhenNameExists(name, web):
 
 
 def init(path):
+    
     if(not os.path.isfile(path)):
         print("get your secrets using https://github.com/Mawalu/whatsapp-phishing and put the 'secrets' file in the current Folder.")
         exit(0)
+
+
+    virtualDisplay = True
+    if sys.platform == 'linux2':
+        try:
+            if(virtualDisplay):
+                from pyvirtualdisplay import Display
+                display = Display(visible=0, size=(800, 600))
+                display.start()
+        except ImportError:
+            print("VirtualDisplay is enabled but not installed!\nFalling back to normal mode!")
 
     web = webdriver.Chrome()
     web.get("https://web.whatsapp.com")
